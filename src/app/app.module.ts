@@ -21,6 +21,9 @@ import { AlertModule } from 'ngx-bootstrap/alert';
 import { MenuComponent } from './menu/menu.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LayoutComponent } from './layout/layout.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
    declarations: [
@@ -30,9 +33,11 @@ import { LayoutComponent } from './layout/layout.component';
    ],
    imports: [
       BrowserModule,
+      HttpClientModule,
       AppRoutingModule,
       AngularFontAwesomeModule,
       BrowserAnimationsModule,
+      FormsModule,
       TabsModule.forRoot(),
       ButtonsModule.forRoot(),
       BsDropdownModule.forRoot(),
