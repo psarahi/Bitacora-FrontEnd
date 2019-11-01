@@ -29,7 +29,6 @@ export class CategoriaComponent implements OnInit {
    borrarCategoria(id) {
      this._apiService.deleteCategoria(id).toPromise().then((data: any) => {
       this.categorias.forEach( (item, index) => {
-        debugger;
         if(item.id === data.id) { this.categorias.splice(index, 1); }
       });
      });
