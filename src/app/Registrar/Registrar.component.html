@@ -1,3 +1,100 @@
-<p>
-  Registrar works!
-</p>
+<div class="container shadow p-3 mb-5 bg-white rounded">
+  <div class="d-flex justify-content-between m-4">
+    <h1 class="d-inline align-middle">Registrar actividad</h1>
+    <button type="button" (click)="openModal(template)" class="btn btn-light"><i class="fa fa-plus p-1"></i>Crear Nueva
+      actividad</button>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center" scope="col">Id</th>
+        <th class="text-center" scope="col">Fecha</th>
+        <th class="text-center" scope="col">Descripcion</th>
+        <th class="text-center" scope="col">Categoria</th>
+        <th class="text-center" scope="col">Hora inicio</th>
+        <th class="text-center" scope="col">Hora final</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actividad of actividades">
+        <th class="text-center" scope="row">{{actividad.id}}</th>
+        <td class="text-center">{{actividad.fecha | date: 'yyyy-MM-dd'}}</td>
+        <td class="text-center">{{actividad.descripcion}}</td>
+        <td class="text-center">{{actividad.categoriaId}}</td>
+        <td class="text-center">{{actividad.horaInicial | date: 'HH:mm'}}</td>
+        <td class="text-center">{{actividad.horaFinal | date: 'HH:mm'}}</td>
+        <td class="text-center">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-light btn-sm"><i class="fa fa-pencil"></i></button>
+            <button type="button" (click)="borrarActividad(actividad.id)" class="btn btn-danger btn-sm"><i
+                class="fa fa-trash-o"></i></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Crea una nueva actividad</h4>
+    <!--  -->
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--  -->
+    <form #actividad="ngForm" (ngSubmit)="onCreateCategoria(actividad.value)">
+      <!-- <div class="input-group pt-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon2">Id</div>
+        </div>
+        <input type="text" name="id" ngModel class="form-control" placeholder="Id unico de la actividad"
+          aria-label="Input group example" aria-describedby="btnGroupAddon2">
+      </div> -->
+      <div class="input-group pt-2 pb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon2">Fecha</div>
+        </div>
+        <input type="date" name="fecha" ngModel class="form-control" placeholder="" aria-label="Input group example"
+          aria-describedby="btnGroupAddon2">
+      </div>
+      <div class="input-group pt-2 pb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon2">Descripcion</div>
+        </div>
+        <input type="text" name="descripcion" ngModel class="form-control"
+          placeholder="Descripcio de la nueva actividad" aria-label="Input group example"
+          aria-describedby="btnGroupAddon2">
+      </div>
+      <div class="input-group pt-2 pb-2">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01" ngModel class="form-control" name="categoriaId">
+
+          <option *ngFor="let item of categorias" [ngValue]="item.id"> {{ item.nombre }} </option>
+        </select>
+      </div>
+      <div class="input-group pt-2 pb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon2">Hora Inicio</div>
+        </div>
+        <input type="time" name="horaInicial" ngModel class="form-control" placeholder=""
+          aria-label="Input group example" aria-describedby="btnGroupAddon2">
+      </div>
+      <div class="input-group pt-2 pb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text" id="btnGroupAddon2">Hora final</div>
+        </div>
+        <input type="time" name="horaFinal" ngModel class="form-control" placeholder="" aria-label="Input group example"
+          aria-describedby="btnGroupAddon2">
+      </div>
+      <div class="d-flex justify-content-end">
+        <input class="btn btn-primary p-2" (click)="modalRef.hide()" type="submit" value="Crear">
+      </div>
+    </form>
+  </div>
+</ng-template>

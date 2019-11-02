@@ -14,15 +14,34 @@ export class ApiService {
     return this.http.get(this.apiUrl + 'categoria');
   }
 
-  getCategoriaById(id){
+  getCategoriaById(id) {
     return this.http.get(this.apiUrl + 'categoria/' + id);
   }
 
-  deleteCategoria(id){
+  deleteCategoria(id) {
     return this.http.delete(this.apiUrl + 'categoria/' + id);
   }
 
   createCategoria(categoria: any) {
     return this.http.post(this.apiUrl + 'categoria/', categoria);
   }
+
+  ///////////////////////////////////////////////////////////////////
+
+  getAllActividad() {
+    return this.http.get(this.apiUrl + 'Actividad');
+  }
+
+  GetActividadById(id) {
+    return this.http.get(this.apiUrl + 'Actividad/' + id);
+  }
+
+  deleteActividad(id) {
+    return this.http.delete(this.apiUrl + 'Actividad/' + id);
+  }
+
+  createActividad(actividad: any) {
+    return this.http.post(this.apiUrl + 'Actividad/', actividad);
+  }
+
 }
