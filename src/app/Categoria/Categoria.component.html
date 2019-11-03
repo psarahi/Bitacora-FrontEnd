@@ -4,7 +4,7 @@
     <button type="button" (click)="openModal(template)" class="btn btn-light"><i class="fa fa-plus p-1"></i>Crear Nueva
       categoria</button>
   </div>
-  <table class="table">
+  <table class="table table-sm">
     <thead class="thead-dark">
       <tr>
         <th class="text-center" scope="col">Id</th>
@@ -18,7 +18,8 @@
         <td class="text-center">{{categoria.nombre}}</td>
         <td class="text-center">
           <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-light btn-sm"><i class="fa fa-pencil"></i></button>
+            <button type="button" (click)="editModal(template,categoria )" class="btn btn-light btn-sm"><i
+                class="fa fa-pencil"></i></button>
             <button type="button" (click)="borrarCategoria(categoria.id)" class="btn btn-danger btn-sm"><i
                 class="fa fa-trash-o"></i></button>
           </div>
@@ -41,11 +42,11 @@
         <div class="input-group-prepend">
           <div class="input-group-text" id="btnGroupAddon2">Nombre</div>
         </div>
-        <input type="text" name="nombre" ngModel class="form-control" placeholder="Nombre de la nueva categoria"
-          aria-label="Input group example" aria-describedby="btnGroupAddon2">
+        <input type="text" name="nombre" [(ngModel)]="newname" class="form-control"
+          placeholder="Nombre de la nueva categoria" aria-label="Input group example" aria-describedby="btnGroupAddon2">
       </div>
       <div class="d-flex justify-content-end">
-        <input class="btn btn-primary p-2" (click)="modalRef.hide()" type="submit" value="Crear">
+        <input class="btn btn-primary p-2" (click)="modalRef.hide()" type="submit" value="Guardar">
       </div>
     </form>
   </div>

@@ -1,0 +1,55 @@
+<div>
+
+</div>
+<div class="container shadow p-3 mb-5 bg-white rounded">
+  <br>
+  <hr>
+  <h2 style="text-align: center;"> <strong> REPORTES</strong> </h2>
+  <hr>
+  <br>
+  <br>
+  <div style="display: flex; flex-direction: row; justify-content: space-around; margin: 12px;">
+    <button class="btn btn-outline-primary" (click)="hoy()"> Hoy</button>
+    
+
+    <div class="input-group pt-2 pb-2" style="max-width: 300px;">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="btnGroupAddon2">Fecha inicial</div>
+      </div>
+      <input type="date" name="fechaInicial" [(ngModel)]="fechaInicial" class="form-control" placeholder=""
+        aria-label="Input group example" aria-describedby="btnGroupAddon2">
+    </div>
+    <div class="input-group pt-2 pb-2" style="max-width: 300px;">
+      <div class="input-group-prepend">
+        <div class="input-group-text" id="btnGroupAddon2">Fecha final</div>
+      </div>
+      <input type="date" name="fechaFinal" [(ngModel)]="fechaFinal" class="form-control" placeholder=""
+        aria-label="Input group example" aria-describedby="btnGroupAddon2">
+    </div>
+    <button class="btn btn-outline-primary" (click)="Mostrar()"> Mostrar</button>
+  </div>
+
+  <table class="table table-bordered  table-striped table-sm">
+    <thead class="table-info active">
+      <tr>
+        <th class="text-center" scope="col">Id</th>
+        <th class="text-center" scope="col">Fecha</th>
+        <th class="text-center" scope="col">Descripcion</th>
+        <th class="text-center" scope="col">Categoria</th>
+        <th class="text-center" scope="col">Hora inicio</th>
+        <th class="text-center" scope="col">Hora final</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actividad of actividades">
+        <th class="text-center" scope="row">{{actividad.id}}</th>
+        <td class="text-center">{{actividad.fecha | date: 'yyyy-MM-dd'}}</td>
+        <td class="text-center">{{actividad.descripcion}}</td>
+        <td class="text-center">{{actividad.nombreDeCategoria}}</td>
+        <td class="text-center">{{actividad.horaInicial | date: 'HH:mm'}}</td>
+        <td class="text-center">{{actividad.horaFinal | date: 'HH:mm'}}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>

@@ -18,9 +18,9 @@ export class RegistrarComponent implements OnInit {
 
   constructor(apiService: ApiService, private modalService: BsModalService) {
     this._apiService = apiService;
-    this._apiService.getAllActividad().subscribe(data => {
-      console.log(data);
-      this.actividades = data;
+    this._apiService.getAllActividad().subscribe((data: any) => {
+
+      this.actividades = data.result;
     });
 
     this._apiService.getAll().subscribe(data => {
@@ -40,6 +40,9 @@ export class RegistrarComponent implements OnInit {
     });
   }
 
+  abrirModal(id) {
+
+  }
   onCreateCategoria(data) {
     this.fechadia = moment().format('YYYY-MM-DD');
     console.log(data);
@@ -56,7 +59,12 @@ export class RegistrarComponent implements OnInit {
         '',
         'success'
       );
-      this.actividades.push(actividad);
+
+      this._apiService.getAllActividad().toPromise().then((data: any) => {
+        this.actividades = data.result;
+      });
+
+      // this.actividades.push(actividad);
 
 
     });

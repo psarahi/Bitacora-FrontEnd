@@ -26,10 +26,26 @@ export class ApiService {
     return this.http.post(this.apiUrl + 'categoria/', categoria);
   }
 
+  putCategoria(id: any, categoria: any) {
+
+    return this.http.put(this.apiUrl + 'categoria/' + id, categoria);
+  }
+
   ///////////////////////////////////////////////////////////////////
 
   getAllActividad() {
-    return this.http.get(this.apiUrl + 'Actividad');
+    return this.http.get(this.apiUrl + 'Actividad/GetAll');
+  }
+
+  GetActividadByFecha() {
+    return this.http.get(this.apiUrl + 'Actividad/GetActividadByFecha');
+  }
+
+  GetActividadByFilter(fechaInicial: any, fechaFinal: any) {
+
+    // let params = new HttpParams().set("paramName", paramValue).set("paramName2", paramValue2);
+    // this.http.get(url, { headers: headers, params: params });
+    return this.http.get(this.apiUrl + 'Actividad/GetActividadByFilter?fechaInicial=' + fechaInicial + '&fechaFinal=' + fechaFinal);
   }
 
   GetActividadById(id) {
@@ -41,7 +57,7 @@ export class ApiService {
   }
 
   createActividad(actividad: any) {
-    return this.http.post(this.apiUrl + 'Actividad/', actividad);
+    return this.http.post(this.apiUrl + 'Actividad/PostActividad/', actividad);
   }
 
 }

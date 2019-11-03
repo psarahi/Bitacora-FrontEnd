@@ -4,7 +4,7 @@
     <button type="button" (click)="openModal(template)" class="btn btn-light"><i class="fa fa-plus p-1"></i>Crear Nueva
       actividad</button>
   </div>
-  <table class="table">
+  <table class="table table-sm">
     <thead class="thead-dark">
       <tr>
         <th class="text-center" scope="col">Id</th>
@@ -13,7 +13,7 @@
         <th class="text-center" scope="col">Categoria</th>
         <th class="text-center" scope="col">Hora inicio</th>
         <th class="text-center" scope="col">Hora final</th>
-        <th></th>
+        <!-- <th></!--> 
       </tr>
     </thead>
     <tbody>
@@ -21,16 +21,17 @@
         <th class="text-center" scope="row">{{actividad.id}}</th>
         <td class="text-center">{{actividad.fecha | date: 'yyyy-MM-dd'}}</td>
         <td class="text-center">{{actividad.descripcion}}</td>
-        <td class="text-center">{{actividad.categoriaId}}</td>
+        <td class="text-center">{{actividad.nombreDeCategoria}}</td>
         <td class="text-center">{{actividad.horaInicial | date: 'HH:mm'}}</td>
         <td class="text-center">{{actividad.horaFinal | date: 'HH:mm'}}</td>
-        <td class="text-center">
+        <!-- <td class="text-center">
           <div class="btn-group" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-light btn-sm"><i class="fa fa-pencil"></i></button>
+            <button type="button" (click)="openModal(template)" class="btn btn-light btn-sm"><i
+                class="fa fa-pencil"></i></button>
             <button type="button" (click)="borrarActividad(actividad.id)" class="btn btn-danger btn-sm"><i
                 class="fa fa-trash-o"></i></button>
           </div>
-        </td>
+        </td> -->
       </tr>
     </tbody>
   </table>

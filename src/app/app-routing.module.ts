@@ -18,6 +18,10 @@ export const routes: Routes = [
       {
         path: 'registrar',
         loadChildren: () => import('./Registrar/Registrar.module').then(mod => mod.RegistrarModule)
+      },
+      {
+        path: 'actividad',
+        loadChildren: () => import('./Actividad/Actividad.module').then(mod => mod.ActividadModule)
       }
     ]
   }
