@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ApiService } from './../api.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-Categoria',
   templateUrl: './Categoria.component.html',
@@ -37,6 +37,11 @@ export class CategoriaComponent implements OnInit {
   onCreateCategoria(data) {
     console.log(data);
     this._apiService.createCategoria({ nombre: data.nombre }).toPromise().then(categoria => {
+      Swal.fire(
+        'Agregado',
+        '',
+        'success'
+      );
       this.categorias.push(categoria);
     });
   }

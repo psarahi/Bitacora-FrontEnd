@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ApiService } from './../api.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import * as moment from 'moment';
-
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 @Component({
   selector: 'app-Registrar',
   templateUrl: './Registrar.component.html',
@@ -51,7 +51,14 @@ export class RegistrarComponent implements OnInit {
       horaInicial: this.fechadia + 'T' + data.horaInicial,
       horaFinal: this.fechadia + 'T' + data.horaFinal
     }).toPromise().then(actividad => {
+      Swal.fire(
+        'Agregado',
+        '',
+        'success'
+      );
       this.actividades.push(actividad);
+
+
     });
   }
 

@@ -23,7 +23,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { LayoutComponent } from './layout/layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
    declarations: [
@@ -38,6 +38,12 @@ import { FormsModule } from '@angular/forms';
       AngularFontAwesomeModule,
       BrowserAnimationsModule,
       FormsModule,
+      SweetAlert2Module.forRoot({
+         buttonsStyling: false,
+         customClass: 'modal-content',
+         confirmButtonClass: 'btn btn-primary',
+         cancelButtonClass: 'btn'
+      }),
       TabsModule.forRoot(),
       ButtonsModule.forRoot(),
       BsDropdownModule.forRoot(),
